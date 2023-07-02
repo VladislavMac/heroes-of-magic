@@ -1,0 +1,19 @@
+{
+  "name": "heroes-of-magic",
+  "version": "1.0.0",
+  "description": "future rpg game",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VladislavMac/heroes-of-magic.git"
+  },
+  "author": "VladislavMac",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VladislavMac/heroes-of-magic/issues"
+  },
+  "homepage": "https://github.com/VladislavMac/heroes-of-magic#readme"
+}
