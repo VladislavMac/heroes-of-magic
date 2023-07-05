@@ -22,7 +22,7 @@ const rooms = {
         
 
         },
-    magazine_0 : function({$target, $player}){
+    shop_0 : function({$target, $player}){
             const room = new Room({x : 3, y : 3});
             room.render();  
 

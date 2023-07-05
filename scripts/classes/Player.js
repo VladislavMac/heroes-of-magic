@@ -55,7 +55,10 @@ class Player{
         if( $target.classList.contains('build-wrapper') ){
             const buildID = parseInt($target.id);
             setTimeout(() =>{
-                list.buildings[buildID].build.use({$target : $target, $player : this.$player})
+                list.buildings[buildID].use({
+                    $target : $target, 
+                    $player : this.$player
+                })
             }, this.speed)
         }
     }

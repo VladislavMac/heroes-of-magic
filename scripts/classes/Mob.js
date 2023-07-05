@@ -1,19 +1,20 @@
 class Mob{
-    constructor({mob, id}){
-        this.mob   = mob;
-        this.id    = id;
-        
-        this.moves = this.mob.move;
-        this.x     = this.mob.x;
-        this.y     = this.mob.y;
-        this.w , this.h;
+    constructor({config, position, status, shop, move, hp, x, y, width, height}){
+        this.config   = config;
+        this.position = position;
+        this.status   = status;
+        this.shop     = shop;
+        this.moves     = move;
+        this.hp       = hp;
 
-        if(this.mob.width !== undefined && this.mob.height !== undefined){
-            this.w = this.mob.width,
-            this.h = this.mob.height;
-        }else{
-            this.w = this.mob.config.width,
-            this.h = this.mob.config.height;
+        this.x        = x;
+        this.y        = y;
+        this.w        = width;
+        this.h        = height;
+
+        if(this.w === undefined && this.h === undefined){
+            this.w = this.config.width,
+            this.h = this.config.height;
         }
 
         this.$mob = document.createElement('div');
@@ -27,9 +28,9 @@ class Mob{
 
         this.$mobWrapper = document.createElement('div');
         this.$mobWrapper.className = 'mob-wrapper';
-        this.$mobWrapper.classList.add(this.mob.status);
+        this.$mobWrapper.classList.add(this.status);
         
-        this.$mobWrapper.style.backgroundImage = `url('images/mobs/${this.mob.config.name}/${this.mob.config.animations.idle}.gif')`
+        this.$mobWrapper.style.backgroundImage = `url('images/mobs/${this.config.name}/${this.config.animations.idle}.gif')`
       
         this.$mob.appendChild(this.$mobWrapper);
 
@@ -38,16 +39,16 @@ class Mob{
     }
 
     closeDoors(){
-        if(this.$buildWrapper.classList.contains('open')){
-            this.$buildWrapper.classList.remove('open');    
+        if(this.$mobWrapper.classList.contains('open')){
+            this.$mobWrapper.classList.remove('open');    
         }
-        this.$buildWrapper.classList.add('close');
+        this.$mobWrapper.classList.add('close');
     }
     openDoors(){
-        if(this.$buildWrapper.classList.contains('close')){
-            this.$buildWrapper.classList.remove('close');    
+        if(this.$mobWrapper.classList.contains('close')){
+            this.$mobWrapper.classList.remove('close');    
         }
-        this.$buildWrapper.classList.add('open');
+        this.$mobWrapper.classList.add('open');
     }
 
     move(){
@@ -76,7 +77,7 @@ class Mob{
                 if( this.moveY <= lengthY ){
                     randomY = getRandomNum({min : 0, max : lengthY});
                     
-                }else if( this.moveY + this.mob.height >= (terrainY + terrainH - lengthY) ){
+                }else if( this.moveY + this.h >= (terrainY + terrainH - lengthY) ){
                     randomY = getRandomNum({min : -lengthY, max : 0});
     
                 }else{
@@ -86,7 +87,7 @@ class Mob{
                 if( this.moveX <= lengthX ){
                     randomX = getRandomNum({min : 0, max : lengthX});
     
-                }else if( this.moveX + this.mob.width >= (terrainX + terrainW - lengthX) ){
+                }else if( this.moveX + this.w >= (terrainX + terrainW - lengthX) ){
                     randomX = getRandomNum({min : -lengthX, max : 0});
     
                 }else{
@@ -105,8 +106,8 @@ class Mob{
                 this.$mob.style.top = this.moveY + 'px';
                 this.$mob.style.left = this.moveX + 'px';
     
-                this.$mobWrapper.style.backgroundImage = `url('images/mobs/${this.mob.config.name}/${this.mob.config.animations.walk}.gif')`
-                this.$mob.addEventListener('transitionend', () => this.$mobWrapper.style.backgroundImage = `url('images/mobs/${this.mob.config.name}/${this.mob.config.animations.idle}.gif')`)
+                this.$mobWrapper.style.backgroundImage = `url('images/mobs/${this.config.name}/${this.config.animations.walk}.gif')`
+                this.$mob.addEventListener('transitionend', () => this.$mobWrapper.style.backgroundImage = `url('images/mobs/${this.config.name}/${this.config.animations.idle}.gif')`)
             }, getRandomNum({min : 1000, max : 5000  }))
         }
     }

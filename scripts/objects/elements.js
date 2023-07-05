@@ -1,19 +1,14 @@
 // Here you can make new mapc element 
 
 const elements = [
-    {
+    new Element({
         config : config.elements.tree_1,
         status : 'open',
-        x : 225 , y : 450,
-    },
-    {
-        config : config.elements.tree_2,
-        status : 'open',
-        x : 370 , y : 415,
-    },
-    {
+        x : 300, y : 200
+    }),
+    new Element({
         config : config.elements.tree_3,
         status : 'open',
-        x : 496 , y : 435,
-    },
+        x : 450, y : 200
+    })
 ]

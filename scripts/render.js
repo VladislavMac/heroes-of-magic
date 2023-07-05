@@ -10,37 +10,32 @@ const player = new Player({
 
 const renderBuildings = () => {
     for( let i = 0; i < builds.length; i++ ){
-        const build = new Build({
-            build : builds[i],
-            id : i,
-        });
-        list.buildings.push(build);
+        const building = builds[i];
+        building.$buildWrapper.id = i;
+        building.render();
 
-        build.render();
+        list.buildings.push(building);
     }
 }
 
 const renderElements = () => {
     for( let i = 0; i < elements.length; i++ ){
-        const element = new Element({
-            element : elements[i]
-        });
-        list.elements.push(element);
-    
+        const element = elements[i];
+        element.$elementWrapper.id = i;
         element.render();
+
+        list.elements.push(element);
     }
 }
 
 const renderMobs = () => {
     for( let i = 0; i < mobs.length; i++ ){
-        const mob = new Mob({
-            mob : mobs[i],
-            id  : i,
-        });
-        list.mobs.push(mob);
-    
+        const mob = mobs[i];
+        mob.$mobWrapper.id = i;
         mob.render();
         mob.move();
+
+        list.mobs.push(mob);
     }
 }
 

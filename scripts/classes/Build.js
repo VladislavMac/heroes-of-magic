@@ -1,18 +1,17 @@
 class Build{
-    constructor({build, id}){
-        this.build = build;
-        this.id    = id;
+    constructor({config, status, x, y, w, h, use}){
+        this.config = config;
+        this.status = status;
+        this.use    = use;
 
-        this.x = this.build.x,
-        this.y = this.build.y,
-        this.w , this.h;
+        this.x = x,
+        this.y = y,
+        this.w = w,
+        this.h = h;
 
-        if(this.build.width !== undefined && this.build.height !== undefined){
-            this.w = this.build.width,
-            this.h = this.build.height;
-        }else{
-            this.w = this.build.config.width,
-            this.h = this.build.config.height;
+        if(this.w === undefined && this.h === undefined){
+            this.w = this.config.width,
+            this.h = this.config.height;
         }
 
         this.$build = document.createElement('div');
@@ -26,10 +25,9 @@ class Build{
 
         this.$buildWrapper = document.createElement('div');
         this.$buildWrapper.className = 'build-wrapper'
-        this.$buildWrapper.classList.add(this.build.status);
-        this.$buildWrapper.id = id
+        this.$buildWrapper.classList.add(this.status);
         
-        this.$buildWrapper.style.backgroundImage = `url('images/buildings/${this.build.config.icon}.png')`
+        this.$buildWrapper.style.backgroundImage = `url('images/buildings/${this.config.icon}.png')`
 
         this.$build.appendChild(this.$buildWrapper)
     }

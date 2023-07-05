@@ -1,49 +1,49 @@
 class Element{
-    constructor({element}){
-        this.element = element;
+    constructor({config, status, x, y, width, height}){
+        this.config = config;
+        this.status = status;
 
-        this.x = this.element.x,
-        this.y = this.element.y,
-        this.w, this.h;
+        this.x = x,
+        this.y = y,
 
-        if(this.element.width !== undefined && this.element.height !== undefined){
-            this.w = this.element.width,
-            this.h = this.element.height;
-        }else{
-            this.w = this.element.config.width,
-            this.h = this.element.config.height;
+        this.width = width
+        this.height = height
+
+        if(this.width === undefined && this.height === undefined){
+            this.width  = this.config.width
+            this.height = this.config.height
         }
 
         this.$element = document.createElement('div');
         this.$element.className = 'element';
 
-        this.$element.style.width  = `${this.w}px`;
-        this.$element.style.height = `${this.h}px`;
+        this.$element.style.width  = `${this.width}px`;
+        this.$element.style.height = `${this.height}px`;
 
-        this.$element.style.left = getCenterX({x: this.x, w : this.w}) + 'px';
-        this.$element.style.top = this.y - this.h + 'px';
+        this.$element.style.left = getCenterX({x: this.x, w : this.width}) + 'px';
+        this.$element.style.top = this.y - this.height + 'px';
 
         this.$elementWrapper = document.createElement('div');
         this.$elementWrapper.className = 'element-wrapper'
-        this.$elementWrapper.classList.add(this.element.status);
+        this.$elementWrapper.classList.add(this.status);
 
-        this.$elementWrapper.style.backgroundImage = `url('images/elements/${this.element.config.icon}.png')`
+        this.$elementWrapper.style.backgroundImage = `url('images/elements/${this.config.icon}.png')`
 
         this.$element.appendChild(this.$elementWrapper)
 
     }
 
     closeDoors(){
-        if(this.$buildWrapper.classList.contains('open')){
-            this.$buildWrapper.classList.remove('open');    
+        if(this.$elementWrapper.classList.contains('open')){
+            this.$elementWrapper.classList.remove('open');    
         }
-        this.$buildWrapper.classList.add('close');
+        this.$elementWrapper.classList.add('close');
     }
     openDoors(){
-        if(this.$buildWrapper.classList.contains('close')){
-            this.$buildWrapper.classList.remove('close');    
+        if(this.$elementWrapper.classList.contains('close')){
+            this.$elementWrapper.classList.remove('close');    
         }
-        this.$buildWrapper.classList.add('open');
+        this.$elementWrapper.classList.add('open');
     }
 
     render(){
