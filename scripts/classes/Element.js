@@ -4,8 +4,15 @@ class Element{
 
         this.x = this.element.x,
         this.y = this.element.y,
-        this.w = this.element.width,
-        this.h = this.element.height;
+        this.w, this.h;
+
+        if(this.element.width !== undefined && this.element.height !== undefined){
+            this.w = this.element.width,
+            this.h = this.element.height;
+        }else{
+            this.w = this.element.config.width,
+            this.h = this.element.config.height;
+        }
 
         this.$element = document.createElement('div');
         this.$element.className = 'element';

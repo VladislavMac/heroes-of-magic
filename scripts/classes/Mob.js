@@ -1,12 +1,20 @@
 class Mob{
-    constructor({mob}){
+    constructor({mob, id}){
         this.mob   = mob;
+        this.id    = id;
         
         this.moves = this.mob.move;
         this.x     = this.mob.x;
         this.y     = this.mob.y;
-        this.w     = this.mob.config.width;
-        this.h     = this.mob.config.height;
+        this.w , this.h;
+
+        if(this.mob.width !== undefined && this.mob.height !== undefined){
+            this.w = this.mob.width,
+            this.h = this.mob.height;
+        }else{
+            this.w = this.mob.config.width,
+            this.h = this.mob.config.height;
+        }
 
         this.$mob = document.createElement('div');
         this.$mob.className = 'mob';

@@ -6,6 +6,8 @@ class Player{
         this.w = w;
         this.h = h;
 
+        this.speed = 1500 
+
         this.moveX = x;
 
         this.$player                  = document.createElement('div');
@@ -15,7 +17,8 @@ class Player{
         this.$player.style.height     = this.h + 'px';
         this.$player.style.left       = this.x + 'px';
         this.$player.style.top        = this.y + 'px';
-        this.$player.style.transitionDuration = '2000ms';
+
+        this.$player.style.transitionDuration = this.speed + 'ms';
 
         this.$playerWrapper           = document.createElement('div');
         this.$playerWrapper.className = 'player-wrapper'
@@ -39,7 +42,8 @@ class Player{
         this.y = getCenterY({y : y, h : this.h});
 
         if( shift ){
-            this.$player.style.transitionDuration = '1000ms';
+            this.$player.style.transitionDuration = this.speed + 'ms';
+
             this.$playerWrapper.style.backgroundImage = `url('images/mobs/riper/run.gif')`
         }else{
             this.$playerWrapper.style.backgroundImage = `url('images/mobs/riper/walk.gif')`
@@ -48,10 +52,12 @@ class Player{
         this.$player.style.left = this.x + 'px',
         this.$player.style.top = this.y + 'px';
 
-        if( $target.classList.contains('build') ){
-            console.log($target.id)
+        if( $target.classList.contains('build-wrapper') ){
+            const buildID = parseInt($target.id);
+            setTimeout(() =>{
+                list.buildings[buildID].build.use({$target : $target, $player : this.$player})
+            }, this.speed)
         }
-
     }
 
     render(){

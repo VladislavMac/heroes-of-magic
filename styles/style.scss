@@ -47,7 +47,7 @@ body{
     &-wrapper{
         width: 100%;
         height: 100%;
-        background-size: 85%;
+        background-size: 100% 100%;
         background-position: center;
         background-repeat: no-repeat;
     }
@@ -72,7 +72,7 @@ body{
     &-wrapper{
         width: 100%;
         height: 100%;
-        background-size: 85%;
+        background-size: 100% 100%;
         background-position: center;
         background-repeat: no-repeat;
     }
@@ -99,7 +99,8 @@ body{
     &-wrapper{
         width: 100%;
         height: 100%;
-        background-size: 100%;
+        background-size: 100% 100%;
+
         background-position: center;
         background-repeat: no-repeat;
     }
@@ -120,14 +121,47 @@ body{
     &-wrapper{
         width: 100%;
         height: 100%;
-        background-size: 100%;
+        background-size: 100% 100%;
         background-position: center;
         background-repeat: no-repeat;
     }
 }
 
+.room{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    z-index: 10;
+    background-color: #111;
+    &-wrapper{
+        display: flex;
+        &-column{
+            &_item{
+                width: 100px;
+                height: 100px;
+                // border: 0.1vw solid #111;
+                &-wrapper{
+                    width: 100%;
+                    height: 100%;
+                    background-image: url('../images/textures/wood.jpg');
+                    background-size: 100%;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                }
+            }
+        }
+    }
+}
+
 .terrain{
     display: flex;
+    overflow: hidden;
     &-wrapper{
         display: flex;
         &-column{

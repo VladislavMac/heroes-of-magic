@@ -61,7 +61,7 @@ body {
 .element-wrapper {
   width: 100%;
   height: 100%;
-  background-size: 85%;
+  background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -87,7 +87,7 @@ body {
 .build-wrapper {
   width: 100%;
   height: 100%;
-  background-size: 85%;
+  background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -115,7 +115,7 @@ body {
 .mob-wrapper {
   width: 100%;
   height: 100%;
-  background-size: 100%;
+  background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -132,6 +132,42 @@ body {
 .player-wrapper {
   width: 100%;
   height: 100%;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.room {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  z-index: 10;
+  background-color: #111;
+}
+
+.room-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.room-wrapper-column_item {
+  width: 100px;
+  height: 100px;
+}
+
+.room-wrapper-column_item-wrapper {
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/textures/wood.jpg");
   background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -141,6 +177,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  overflow: hidden;
 }
 
 .terrain-wrapper {
