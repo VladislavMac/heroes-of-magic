@@ -53,6 +53,31 @@ body{
     }
 }
 
+.decor{
+    width: 0px;
+    height: 0px;
+    
+    z-index: 12;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    // border: 0.1vw solid rgb(211, 77, 255);
+
+    &-wrapper{
+        width: 100%;
+        height: 100%;
+        background-size: 100% 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}
+
 .build{
     width: 0px;
     height: 0px;
