@@ -56,12 +56,68 @@ function getOpportunityStep({$target, $item, x, y, step}){
           itemW = $item.getBoundingClientRect().width,
           itemH = $item.getBoundingClientRect().height;
           
+    const $room = document.querySelector('.room');
+    const $roomWrapper = document.querySelector('.room-wrapper');
+        
     if( !$target.classList.contains('close') ){
         if( (x >= itemX && x <= itemX + itemW + step) || (x <= itemX && x >= itemX - step) ){
             if( (y <= itemY && y >= itemY - step ) || ( y >= itemY && y <= itemY + itemH + step) ){
-                return true
+                if( $room.style.display === 'flex' && $roomWrapper !== null ){
+                    const roomWrapperX = $roomWrapper.getBoundingClientRect().x,
+                          roomWrapperY = $roomWrapper.getBoundingClientRect().y,
+                          roomWrapperW = $roomWrapper.getBoundingClientRect().width,
+                          roomWrapperH = $roomWrapper.getBoundingClientRect().height;
+
+                    if( (roomWrapperX <= x && (roomWrapperX + roomWrapperW) >= x)){
+                        if(roomWrapperY <= y && (roomWrapperY + roomWrapperH) >= y){
+                            return true
+                        }
+                    }
+                }else{
+                    return true
+                }
             }
         }
     }
     return false
+}
+
+function addLoadScreen(){
+    const load = document.querySelector('.load');
+    load.style.display = 'flex';
+}
+
+function removeLoadScreen(){
+    const load = document.querySelector('.load');
+    load.querySelector('.load-wrapper').style.display = 'none';
+    load.style.background = 'transparent';
+    setTimeout(() =>{
+        load.style.display = 'none';
+        load.style.background = '#111';
+        load.querySelector('.load-wrapper').style.display = 'flex';
+    }, 500)
+}
+
+function openRoom({$target, $player}){
+    const buildID = parseInt($target.id);
+
+    list.buildings[buildID].use({
+        $target : $target, 
+        $player : $player
+    })
+    addLoadScreen()
+
+    setTimeout(() =>{
+        removeLoadScreen()
+    }, 3000)
+}
+
+function exitRoom(){
+    const $decors      = document.querySelectorAll('.decor');
+    const $room        = document.querySelector('.room');
+    const $roomWrapper = $room.querySelector('.room-wrapper');
+    
+    $decors.forEach($decor => $decor.remove())
+    $roomWrapper.remove();
+    $room.style.display = 'none';
 }

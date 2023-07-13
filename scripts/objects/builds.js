@@ -7,6 +7,7 @@ const builds = [
         x : 100,
         y : 200,
         use : function({$target, $player}){
+            decors.shop_0();
             rooms.shop_0({$target, $player})
         },
     }),
@@ -16,7 +17,8 @@ const builds = [
         x : 100,
         y : 360,
         use : function({$target, $player}){
-            rooms.random({$target, $player})
+            decors.house_0();
+            rooms.house_0({$target, $player})
         },
     }),
     new Build({
@@ -25,8 +27,8 @@ const builds = [
         x : 100,
         y : 520,
         use : function({$target, $player}){
-            rooms.random({$target, $player})
+            decors.house_0();
+            rooms.house_0({$target, $player})
         },
     }),
-
 ]

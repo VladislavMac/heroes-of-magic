@@ -16,40 +16,54 @@ body{
 .load{
     position: absolute;
     z-index: 100000;
+
     width: 100vw;
     height: 100vh;
-    background-color: #111;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    &-video{
-        width: 10vw;
-        height: 10vw;
-    }
-}
 
-.element{
-    width: 0px;
-    height: 0px;
-    
-    z-index: 2;
+    background: #111;
 
-    position: absolute;
-    left: 0;
-    top: 0;
+    transition-duration: 500ms;
 
     display: flex;
     justify-content: center;
     align-items: center;
-
-    // border: 0.1vw solid rgb(211, 77, 255);
-
     &-wrapper{
-        width: 100%;
-        height: 100%;
-        background-size: 100% 100%;
-        background-position: center;
-        background-repeat: no-repeat;
+        width: 40vw;
+        height: 40vw;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        &-header{
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &_logo{
+                width: 10vw;
+                height: 20vw;
+
+                background-image: url('../images/decors/decor_6.png');
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+
+            }
+        }
+        
+        // &-desc{
+        //     width: 100%;
+        //     height: 100%;
+
+        //     display: flex;
+        //     justify-content: center;
+        //     align-items: center;
+        //     &-load{
+
+        //     }
+        // }
     }
 }
 
@@ -57,7 +71,7 @@ body{
     width: 0px;
     height: 0px;
     
-    z-index: 12;
+    z-index: 11;
 
     position: absolute;
     left: 0;
@@ -78,12 +92,40 @@ body{
     }
 }
 
+.element{
+    width: 0px;
+    height: 0px;
+    
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    // border: 0.1vw solid rgb(211, 77, 255);
+
+    &-wrapper{
+        width: 100%;
+        height: 100%;
+        background-size: 100% 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}
+.element-wrapper.close{
+    z-index: 6;
+}
+.element-wrapper.open{
+    z-index: 5;
+}
+
+
 .build{
     width: 0px;
     height: 0px;
     
-    z-index: 2;
-
     position: absolute;
     left: 0;
     top: 0;
@@ -103,11 +145,16 @@ body{
     }
 }
 
+.build-wrapper.close{
+    z-index: 5;
+}
+.build-wrapper.open{
+    z-index: 4;
+}
+
 .mob{
     width: 0px;
     height: 0px;
-    
-    z-index: 0;
 
     transition-duration: 2000ms;
 
@@ -131,11 +178,18 @@ body{
     }
 }
 
+.mob-wrapper.open{
+    z-index: 2;
+}
+.mob-wrapper.close{
+    z-index: 3;
+}
+
 .player{
     width: 0px;
     height: 0px;
     
-    z-index: 0;
+    z-index: 1;
     
     position: absolute;
     left: 0;
@@ -157,12 +211,13 @@ body{
     height: 100vh;
     overflow: hidden;
 
+    z-index: 10;
+
     display: none;
     justify-content: center;
     align-items: center;
 
     position: absolute;
-    z-index: 10;
     background-color: #111;
     &-wrapper{
         display: flex;

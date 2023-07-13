@@ -1,13 +1,11 @@
 "use strict";
 
 window.onload = () =>{
-    const load = document.querySelector('.load');
-    load.style.display = 'none';
-    console.log('Load')
+    removeLoadScreen();
 };
 
 window.addEventListener('click', (event) =>{
-    if( key_movePlayer ){
+    if( key_player_move ){
         const $player = document.querySelector('.player');
     
         const coords = {
@@ -16,7 +14,7 @@ window.addEventListener('click', (event) =>{
         }
     
         if( getOpportunityStep({$target : event.target, $item : $player, x : coords.x, y : coords.y, step : 100}) ){
-            key_movePlayer = false 
+            key_player_move = false 
 
             player.move({
                 x       : coords.x, 
@@ -29,7 +27,7 @@ window.addEventListener('click', (event) =>{
                 $player.querySelector('.player-wrapper').style.backgroundImage = `url('images/mobs/riper/idle.gif')`
                 $player.style.transitionDuration = '2000ms'
 
-                key_movePlayer = true
+                key_player_move = true
             })
         }
     }

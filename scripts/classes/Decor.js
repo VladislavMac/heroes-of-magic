@@ -1,33 +1,33 @@
 class Decor{
-    constructor({decor}){
-        this.decor = decor;
+    constructor({config, status, x, y, width, height}){
+        this.config = config;
+        this.status = status;
 
-        this.x = this.decor.x,
-        this.y = this.decor.y,
-        this.w, this.h;
+        this.x = x,
+        this.y = y,
 
-        if(this.decor.width !== undefined && this.decor.height !== undefined){
-            this.w = this.decor.width,
-            this.h = this.decor.height;
-        }else{
-            this.w = this.decor.config.width,
-            this.h = this.decor.config.height;
+        this.width = width;
+        this.height = height;
+
+        if(this.width === undefined && this.height === undefined){
+            this.width = this.config.width,
+            this.height = this.config.height;
         }
 
         this.$decor = document.createElement('div');
         this.$decor.className = 'decor';
 
-        this.$decor.style.width  = `${this.w}px`;
-        this.$decor.style.height = `${this.h}px`;
+        this.$decor.style.width  = `${this.width}px`;
+        this.$decor.style.height = `${this.height}px`;
 
-        this.$decor.style.left = getCenterX({x: this.x, w : this.w}) + 'px';
-        this.$decor.style.top = this.y - this.h + 'px';
+        this.$decor.style.left = this.x + 'px';
+        this.$decor.style.top = this.y + 'px';
 
         this.$decorWrapper = document.createElement('div');
         this.$decorWrapper.className = 'decor-wrapper'
-        this.$decorWrapper.classList.add(this.decor.status);
+        this.$decorWrapper.classList.add(this.status);
 
-        this.$decorWrapper.style.backgroundImage = `url('images/decors/${this.decor.config.icon}.png')`
+        this.$decorWrapper.style.backgroundImage = `url('images/decors/${this.config.icon}.png')`
 
         this.$decor.appendChild(this.$decorWrapper)
 

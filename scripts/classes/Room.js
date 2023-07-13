@@ -27,6 +27,7 @@ class Room{
         }
 
     }
+
     render(){
         this.$room.appendChild(this.$roomWrapper)
         this.$room.style.display = 'flex'

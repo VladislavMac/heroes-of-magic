@@ -4,9 +4,11 @@ const map = new Map({
 });
 
 const player = new Player({
-    x : 350, y : 200,
+    x : key_player_coords.x,
+    y : key_player_coords.y,
     w : 100, h : 100
 });
+
 
 const renderBuildings = () => {
     for( let i = 0; i < builds.length; i++ ){

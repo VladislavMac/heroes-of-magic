@@ -6,7 +6,7 @@ class Player{
         this.w = w;
         this.h = h;
 
-        this.speed = 1500 
+        this.speed = 1000 
 
         this.moveX = x;
 
@@ -52,13 +52,35 @@ class Player{
         this.$player.style.left = this.x + 'px',
         this.$player.style.top = this.y + 'px';
 
+        const $room = document.querySelector('.room');
+
+        if( $room.style.display === 'none' ){
+            key_player_coords.x = this.x,
+            key_player_coords.y = this.y;
+        }
+
         if( $target.classList.contains('build-wrapper') ){
-            const buildID = parseInt($target.id);
             setTimeout(() =>{
-                list.buildings[buildID].use({
-                    $target : $target, 
-                    $player : this.$player
-                })
+                openRoom({$target : $target, $player : this.$player});
+
+                addLoadScreen();
+                setTimeout(() =>{
+                    removeLoadScreen();
+                }, 1500)
+            }, this.speed)
+        }
+        if( $target.classList.contains('exit') ){
+            setTimeout(() =>{
+                exitRoom();
+                this.$player.style.zIndex = 1;
+                this.$player.style.left = key_player_coords.x + 'px';
+                this.$player.style.top  = key_player_coords.y + 'px';
+                
+                addLoadScreen();
+                setTimeout(() =>{
+                    removeLoadScreen();
+                }, 1500)
+
             }, this.speed)
         }
     }

@@ -24,6 +24,8 @@ body {
   width: 100vw;
   height: 100vh;
   background-color: #111;
+  -webkit-transition-duration: 500ms;
+          transition-duration: 500ms;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -35,18 +37,9 @@ body {
           align-items: center;
 }
 
-.load-video {
-  width: 10vw;
-  height: 10vw;
-}
-
-.element {
-  width: 0px;
-  height: 0px;
-  z-index: 2;
-  position: absolute;
-  left: 0;
-  top: 0;
+.load-wrapper {
+  width: 40vw;
+  height: 40vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -56,20 +49,38 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-.element-wrapper {
+.load-wrapper-header {
   width: 100%;
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.load-wrapper-header_logo {
+  width: 10vw;
+  height: 20vw;
+  background-image: url("../images/decors/decor_6.png");
   background-size: 100% 100%;
-  background-position: center;
   background-repeat: no-repeat;
 }
 
 .decor {
   width: 0px;
   height: 0px;
-  z-index: 12;
+  z-index: 11;
   position: absolute;
   left: 0;
   top: 0;
@@ -92,10 +103,42 @@ body {
   background-repeat: no-repeat;
 }
 
+.element {
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.element-wrapper {
+  width: 100%;
+  height: 100%;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.element-wrapper.close {
+  z-index: 6;
+}
+
+.element-wrapper.open {
+  z-index: 5;
+}
+
 .build {
   width: 0px;
   height: 0px;
-  z-index: 2;
   position: absolute;
   left: 0;
   top: 0;
@@ -118,10 +161,17 @@ body {
   background-repeat: no-repeat;
 }
 
+.build-wrapper.close {
+  z-index: 5;
+}
+
+.build-wrapper.open {
+  z-index: 4;
+}
+
 .mob {
   width: 0px;
   height: 0px;
-  z-index: 0;
   -webkit-transition-duration: 2000ms;
           transition-duration: 2000ms;
   position: absolute;
@@ -146,10 +196,18 @@ body {
   background-repeat: no-repeat;
 }
 
+.mob-wrapper.open {
+  z-index: 2;
+}
+
+.mob-wrapper.close {
+  z-index: 3;
+}
+
 .player {
   width: 0px;
   height: 0px;
-  z-index: 0;
+  z-index: 1;
   position: absolute;
   left: 0;
   top: 0;
@@ -167,6 +225,7 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  z-index: 10;
   display: none;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -175,7 +234,6 @@ body {
       -ms-flex-align: center;
           align-items: center;
   position: absolute;
-  z-index: 10;
   background-color: #111;
 }
 

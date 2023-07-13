@@ -168,4 +168,61 @@ const config = {
             },
         }
     },
+    decor : {
+        decor_1 : {
+            type    : 'decor',
+            icon    : 'decor_1',
+            width   : 15, height : 85,
+        },
+        decor_2 : {
+            type    : 'decor',
+            icon    : 'decor_2',
+            width   : 50, height : 40,
+        },
+        decor_3 : {
+            type    : 'decor',
+            icon    : 'decor_3',
+            width   : 50, height : 45,
+        },
+        decor_4 : {
+            type    : 'decor',
+            icon    : 'decor_4',
+            width   : 40, height : 55,
+        },
+        decor_5 : {
+            type    : 'decor',
+            icon    : 'decor_5',
+            width   : 65, height : 40,
+        },
+        decor_6 : {
+            type    : 'decor',
+            icon    : 'decor_6',
+            width   : 60, height : 100,
+        },
+        decor_7 : {
+            type    : 'decor',
+            icon    : 'decor_7',
+            width   : 85, height : 65,
+        },
+        decor_8 : {
+            type    : 'decor',
+            icon    : 'decor_8',
+            width   : 50, height : 100,
+        },
+        decor_9 : {
+            type    : 'decor',
+            icon    : 'decor_9',
+            width   : 90, height : 30,
+        },
+        decor_10 : {
+            type    : 'decor',
+            icon    : 'decor_10',
+            width   : 90, height : 40,
+        },
+        decor_11 : {
+            type    : 'decor',
+            icon    : 'decor_11',
+            width   : 50, height : 30,
+        },
+    },
 }

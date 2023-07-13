@@ -6,4 +6,5 @@ const list = {
     elements  : [], // new element in file elements.js
     mobs      : [], // new mob in file mobs.js
     rooms     : [], // new room in file rooms.js function use
+    decors    : [],
 }
